@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSFiddle 5L6cwn2b</title>
+
+  <style>
+    
+@import url("https://api.fontshare.com/v2/css?f[]=chillax@1&display=swap");
+
+.preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 equal columns */
+  gap: 100px; /* 50px space between items */
+}
+
+
+
+body{
+  background: #0c0c0c;
+  margin: 100px;
+}
+
+.main-container{
+  margin-bottom: 140px;
+}
+
+.no-msg .alert-content{
+  border-top: none;
+  padding: 12px 0 0 0;
+}
+
+.no-msg.bar .alert-content{
+  border-top: none;
+  padding: 12px 0 0 0;
+  background: #5f6475;
+}
+
+
+.main-container{
+  position: relative;
+  transition: 0.5s ease-in-out;
+  scale: 0.25;
+}
+
+.main-container.rot{
+    transition: 1s ease-in-out;
+}
+
+.alert-container{
+  scale: 4;
+  width: 405px;
+  font-family: 'Chillax';
+  color: #b1c3de;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.1));
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: 0.75s ease-in-out;
+}
+
+.alert-top{
+  background: url('https://i.imgur.com/ZnpX8Ep.png');
+  width:  405px;
+  height: 87px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.alert-nickname,
+.alert-detail{
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.alert-nickname{
+  color: #fbfbfc;
+  font-size: 18px;
+  align-self: flex-end;
+}
+
+.alert-detail{
+  font-size: 20px;
+}
+
+.alert-icon{
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  bottom: 55px;
+  z-index: -1;
+}
+
+.alert-icon img{
+  height: 100%; 
+  width: auto;  
+  display: block;
+}
+
+.alert-content{
+  background: #060911;
+  border: 1px solid #5f6475;
+  font-size: 16px;
+  border-radius: 0 0 12px 12px;
+  padding: 15px 30px;
+
+}
+
+/* Glitch */
+
+.glitch{
+  position: absolute;
+  opacity: 0;
+  top: 0;
+}
+
+.glitch-animation{
+   animation: glitch 1.5s;
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+    transform: translate(0);
+    opacity: 0.25;
+  }
+  2%, 8% {
+    clip-path: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+    transform: translate(-5%, 0);
+  }
+  6% {
+    clip-path: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+    transform: translate(5%, 0);
+  }
+  9% {
+    clip-path: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+    transform: translate(0);
+  }
+  10% {
+    clip-path: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+    transform: translate(5%, 0);
+  }
+  13% {
+    clip-path: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+    transform: translate(0);
+  }
+  14%, 21% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+    transform: translate(5%, 0);
+  }
+  25% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+    transform: translate(5%, 0);
+  }
+  30% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+    transform: translate(-5%, 0);
+  }
+  35%, 45% {
+    clip-path: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+    transform: translate(-5%);
+  }
+  40% {
+    clip-path: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+    transform: translate(5%);
+  }
+  50% {
+    clip-path: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+    transform: translate(0);
+  }
+  55% {
+    clip-path: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+    transform: translate(5%, 0);
+  }
+  60% {
+    clip-path: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+    transform: translate(0);
+  }
+  31%, 61%, 100% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+    opacity: 0.25;
+  }
+}
+
+  </style>
+
+  
+</head>
+<body>
+  <div class="preview">
+  <div class="main-container rot">
+
+    <div class="alert-container">
+       <div class="alert-top">
+         <div class="alert-icon">
+           <img src="https://media.discordapp.net/attachments/489546678991585300/1348121487189741608/shinivtuberMONEY2.gif?ex=67d0f279&is=67cfa0f9&hm=e06e5a87088ff75919230ba95932ae7020de445448653d729952ade169803bb2&=&width=782&height=753">
+         </div>
+         <div class="alert-nickname">top1wiesniakpolukim</div>
+         <div class="alert-detail">20zł</div>
+       </div>
+       <div class="alert-content">
+         Lorem ipsum dolor sit amet, consec tetur at adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna dela aliqua. Ut enim ad minim veniam, quis.
+       </div>
+    </div>
+
+
+    <!-- Glitch clone -->
+    <div class="alert-container glitch">
+       <div class="alert-top">
+         <div class="alert-icon">
+           <img src="https://media.discordapp.net/attachments/489546678991585300/1348121487189741608/shinivtuberMONEY2.gif?ex=67d0f279&is=67cfa0f9&hm=e06e5a87088ff75919230ba95932ae7020de445448653d729952ade169803bb2&=&width=782&height=753">
+         </div>
+         <div class="alert-nickname">top1wiesniakpolukim</div>
+         <div class="alert-detail">20 zł</div>
+       </div>
+       <div class="alert-content">
+         Lorem ipsum dolor sit amet, consec tetur at adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna dela aliqua. Ut enim ad minim veniam, quis.
+       </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="main-container no-msg rot">
+
+    <div class="alert-container">
+       <div class="alert-top">
+         <div class="alert-icon">
+           <img src="https://media.discordapp.net/attachments/489546678991585300/1348121487189741608/shinivtuberMONEY2.gif?ex=67d0f279&is=67cfa0f9&hm=e06e5a87088ff75919230ba95932ae7020de445448653d729952ade169803bb2&=&width=782&height=753">
+         </div>
+         <div class="alert-nickname">top1wiesniakpolukim</div>
+         <div class="alert-detail">20zł</div>
+       </div>
+       <div class="alert-content">
+       </div>
+    </div>
+
+
+    <!-- Glitch clone -->
+    <div class="alert-container glitch">
+       <div class="alert-top">
+         <div class="alert-icon">
+           <img src="https://media.discordapp.net/attachments/489546678991585300/1348121487189741608/shinivtuberMONEY2.gif?ex=67d0f279&is=67cfa0f9&hm=e06e5a87088ff75919230ba95932ae7020de445448653d729952ade169803bb2&=&width=782&height=753">
+         </div>
+         <div class="alert-nickname">top1wiesniakpolukim</div>
+         <div class="alert-detail">20zł</div>
+       </div>
+       <div class="alert-content">
+
+       </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="main-container tra">
+
+    <div class="alert-container">
+       <div class="alert-top">
+         <div class="alert-icon">
+           <img src="https://media.discordapp.net/attachments/489546678991585300/1348121487189741608/shinivtuberMONEY2.gif?ex=67d0f279&is=67cfa0f9&hm=e06e5a87088ff75919230ba95932ae7020de445448653d729952ade169803bb2&=&width=782&height=753">
+         </div>
+         <div class="alert-nickname">top1wiesniakpolukim</div>
+         <div class="alert-detail">20zł</div>
+       </div>
+       <div class="alert-content">
+         Lorem ipsum dolor sit amet, consec tetur at adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna dela aliqua. Ut enim ad minim veniam, quis.
+       </div>
+    </div>
+
+
+    <!-- Glitch clone -->
+    <div class="alert-container glitch">
+       <div class="alert-top">
+         <div class="alert-icon">
+           <img src="https://media.discordapp.net/attachments/489546678991585300/1348121487189741608/shinivtuberMONEY2.gif?ex=67d0f279&is=67cfa0f9&hm=e06e5a87088ff75919230ba95932ae7020de445448653d729952ade169803bb2&=&width=782&height=753">
+         </div>
+         <div class="alert-nickname">top1wiesniakpolukim</div>
+         <div class="alert-detail">20 zł</div>
+       </div>
+       <div class="alert-content">
+         Lorem ipsum dolor sit amet, consec tetur at adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna dela aliqua. Ut enim ad minim veniam, quis.
+       </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="main-container no-msg tra" >
+
+    <div class="alert-container">
+       <div class="alert-top">
+         <div class="alert-icon">
+           <img src="https://media.discordapp.net/attachments/489546678991585300/1348121487189741608/shinivtuberMONEY2.gif?ex=67d0f279&is=67cfa0f9&hm=e06e5a87088ff75919230ba95932ae7020de445448653d729952ade169803bb2&=&width=782&height=753">
+         </div>
+         <div class="alert-nickname">top1wiesniakpolukim</div>
+         <div class="alert-detail">20zł</div>
+       </div>
+       <div class="alert-content">
+       </div>
+    </div>
+
+
+    <!-- Glitch clone -->
+    <div class="alert-container glitch">
+       <div class="alert-top">
+         <div class="alert-icon">
+           <img src="https://media.discordapp.net/attachments/489546678991585300/1348121487189741608/shinivtuberMONEY2.gif?ex=67d0f279&is=67cfa0f9&hm=e06e5a87088ff75919230ba95932ae7020de445448653d729952ade169803bb2&=&width=782&height=753">
+         </div>
+         <div class="alert-nickname">top1wiesniakpolukim</div>
+         <div class="alert-detail">20zł</div>
+       </div>
+       <div class="alert-content">
+
+       </div>
+    </div>
+
+  </div>
+
+  <div class="main-container no-msg bar">
+
+    <div class="alert-container">
+       <div class="alert-top">
+         <div class="alert-icon">
+           <img src="https://media.discordapp.net/attachments/489546678991585300/1348121487189741608/shinivtuberMONEY2.gif?ex=67d0f279&is=67cfa0f9&hm=e06e5a87088ff75919230ba95932ae7020de445448653d729952ade169803bb2&=&width=782&height=753">
+         </div>
+         <div class="alert-nickname">top1wiesniakpolukim</div>
+         <div class="alert-detail">20zł</div>
+       </div>
+       <div class="alert-content">
+       </div>
+    </div>
+
+
+    <!-- Glitch clone -->
+    <div class="alert-container glitch">
+       <div class="alert-top">
+         <div class="alert-icon">
+           <img src="https://media.discordapp.net/attachments/489546678991585300/1348121487189741608/shinivtuberMONEY2.gif?ex=67d0f279&is=67cfa0f9&hm=e06e5a87088ff75919230ba95932ae7020de445448653d729952ade169803bb2&=&width=782&height=753">
+         </div>
+         <div class="alert-nickname">top1wiesniakpolukim</div>
+         <div class="alert-detail">20zł</div>
+       </div>
+       <div class="alert-content">
+
+       </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+  <script>
+    const animationDuration = 1500;
+const pauseTime = 2000;
+const totalCycleTime = animationDuration + pauseTime;
+
+// Function to toggle the glitch animation
+function toggleGlitchAnimation(query) {
+  const glitches = document.querySelectorAll(query);
+  glitches.forEach((glitch) => {
+    glitch.classList.add('glitch-animation');
+  
+    setTimeout(() => {
+      glitch.classList.remove('glitch-animation');
+    }, animationDuration); 
+  });
+}
+
+// Function for random translation
+function randomTranslation(query) {
+  const elements = document.querySelectorAll(query);
+  elements.forEach((element) => {
+    let translateX = (Math.random() - 0.5) * 35;
+    let translateY = (Math.random() - 0.5) * 35;
+
+    // Apply the translation
+    element.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(0)`;
+  });
+}
+
+// Function for random rotation
+function randomRotation(query) {
+  const elements = document.querySelectorAll(query);
+  elements.forEach((element) => {
+    let rotateX = (Math.random() - 0.5) * 15;
+    let rotateY = (Math.random() - 0.5) * 15;
+
+    // Apply the rotation
+    element.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
+  });
+}
+
+// Example usage:
+setInterval(() => randomTranslation('.main-container.tra'), 500); // Random translation for '.main-container'
+setInterval(() => randomRotation('.main-container.rot'), 1000);    // Random rotation for '.main-container'
+setInterval(() => toggleGlitchAnimation('.alert-container.glitch'), totalCycleTime); // Glitch for '.alert-container.glitch'
+
+  </script>
+</body>
+</html>
